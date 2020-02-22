@@ -1,4 +1,4 @@
-﻿namespace CohesiveSoftware.Maps.Tests
+﻿namespace Naspinski.Maps.Tests
 {
     public static partial class Keys
     {

@@ -1,6 +1,6 @@
-﻿using CohesiveSoftware.Maps.Interfaces;
+﻿using Naspinski.Maps.Interfaces;
 
-namespace CohesiveSoftware.Maps.Implementations.Google
+namespace Naspinski.Maps.Implementations.Google
 {
     public class GoogleMap : IMap
     {

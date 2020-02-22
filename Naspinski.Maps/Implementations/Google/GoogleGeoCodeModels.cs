@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace CohesiveSoftware.Maps.Implementations.Google
+namespace Naspinski.Maps.Implementations.Google
 {
     public class RootObject
     {

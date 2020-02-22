@@ -1,8 +1,8 @@
-﻿using CohesiveSoftware.Maps.Implementations.Google;
-using CohesiveSoftware.Maps.Interfaces;
+﻿using Naspinski.Maps.Implementations.Google;
+using Naspinski.Maps.Interfaces;
 using Xunit;
 
-namespace CohesiveSoftware.Maps.Tests
+namespace Naspinski.Maps.Tests
 {
     public class GoogleMapTests
     {

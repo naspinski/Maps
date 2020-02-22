@@ -1,4 +1,4 @@
-﻿namespace CohesiveSoftware.Maps.Interfaces
+﻿namespace Naspinski.Maps.Interfaces
 {
     public interface IMap
     {

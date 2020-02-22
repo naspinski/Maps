@@ -1,4 +1,4 @@
-﻿namespace CohesiveSoftware.Maps.Models
+﻿namespace Naspinski.Maps.Models
 {
     public class Coordinates
     {

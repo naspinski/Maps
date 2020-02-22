@@ -1,7 +1,7 @@
-﻿using CohesiveSoftware.Maps.Models;
+﻿using Naspinski.Maps.Models;
 using System.Collections.Generic;
 
-namespace CohesiveSoftware.Maps.Interfaces
+namespace Naspinski.Maps.Interfaces
 {
     public interface IAddress
     {

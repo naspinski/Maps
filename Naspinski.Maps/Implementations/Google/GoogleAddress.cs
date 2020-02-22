@@ -1,12 +1,12 @@
-﻿using CohesiveSoftware.Maps.Interfaces;
-using CohesiveSoftware.Maps.Models;
+﻿using Naspinski.Maps.Interfaces;
+using Naspinski.Maps.Models;
 using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net;
 
-namespace CohesiveSoftware.Maps.Implementations.Google
+namespace Naspinski.Maps.Implementations.Google
 {
     public class GoogleAddress : IAddress
     {

@@ -261,3 +261,4 @@ __pycache__/
 *.pyc
 /CohesiveSoftware.Maps.Tests/KeysLocal.cs
 Naspinski.Maps.Tests/KeysLocal.cs
+Naspinski.Maps/Naspinski.Maps.nuspec

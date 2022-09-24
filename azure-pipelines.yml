@@ -33,7 +33,7 @@ steps:
     
 - task: NuGetCommand@2
   inputs:
-    command: 'push'
+    command: push
     packagesToPush: '$(Build.ArtifactStagingDirectory)/**/*.nupkg;!$(Build.ArtifactStagingDirectory)/**/*.symbols.nupkg'
-    nuGetFeedType: 'internal'
-    publishVstsFeed: '8945a9a4-21ed-4480-ba5c-2a02526efcaa/0e2dcadb-3adb-42f7-b2bd-dc3cf3b59dd6'
+    nuGetFeedType: external
+    publishFeedCredentials: NugetPublic

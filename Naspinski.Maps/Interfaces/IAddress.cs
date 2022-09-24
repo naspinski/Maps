@@ -1,5 +1,6 @@
 ﻿using Naspinski.Maps.Models;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace Naspinski.Maps.Interfaces
 {
@@ -27,5 +28,7 @@ namespace Naspinski.Maps.Interfaces
         Coordinates Location { get; }
         List<Coordinates> Bounds { get; }
         List<Coordinates> ViewPort { get; }
+
+        Task GetAddress();
     }
 }

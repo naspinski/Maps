@@ -1,16 +1,18 @@
 ﻿using Naspinski.Maps.Interfaces;
 using Naspinski.Maps.Models;
-using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
-using System.Net;
+using System.Net.Http;
+using System.Text.Json;
+using System.Threading.Tasks;
 
 namespace Naspinski.Maps.Implementations.Google
 {
     public class GoogleAddress : IAddress
     {
-        private readonly RootObject _root;
+        private RootObject _root;
+        private readonly Uri _uri;
         private Result _results { get { return _root?.results?.FirstOrDefault() ?? new Result(); } }
 
         public string StreetNumber { get { return GetAddressComponent("street_number").long_name; } }
@@ -73,22 +75,19 @@ namespace Naspinski.Maps.Implementations.Google
             return coords;
         }
 
+
         public GoogleAddress(string url)
         {
-            var request = (HttpWebRequest)WebRequest.Create(url);
-            using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
+            _uri = new Uri(url);
+        }
+
+        public async Task GetAddress()
+        {
+            var client = new HttpClient();
+
+            using (var stream = await client.GetStreamAsync(_uri))
             {
-                using (Stream stream = response.GetResponseStream())
-                {
-                    var serializer = new JsonSerializer();
-                    using (var sr = new StreamReader(stream))
-                    {
-                        using (var jsonTextReader = new JsonTextReader(sr))
-                        {
-                            _root = serializer.Deserialize<RootObject>(jsonTextReader);
-                        }
-                    }
-                }
+                _root = JsonSerializer.Deserialize<RootObject>(stream);
             }
         }
     }

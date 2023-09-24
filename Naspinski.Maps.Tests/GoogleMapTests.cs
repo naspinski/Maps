@@ -1,33 +1,36 @@
-﻿using Naspinski.Maps.Implementations.Google;
-using Naspinski.Maps.Interfaces;
+﻿using Naspinski.Maps.Interfaces;
+using System.Threading.Tasks;
 using Xunit;
 
 namespace Naspinski.Maps.Tests
 {
-    public class GoogleMapTests
+    public class GoogleMapTests : TestBase
     {
-        IMap map = new GoogleMap(Keys.GoogleMapsApiKey);
+        public GoogleMapTests() : base() { }
 
         [Fact]
-        public void BasicAddress()
+        public async Task BasicAddress()
         {
-            IAddress address = map.GetAddress("212 N 1st St Unit 311, Minneapolis, MN 55401");
+            IAddress address = Map.GetAddress("212 N 1st St Unit 311, Minneapolis, MN 55401");
+            await address.GetAddress();
             Assert.Equal("Central Minneapolis", address.Neighborhood);
             Assert.Equal("1557", address.PostalCodeSuffix);
         }
 
         [Fact]
-        public void ZipGetsAddress()
+        public async Task ZipGetsAddress()
         {
-            IAddress address = map.GetAddress("55401");
+            IAddress address = Map.GetAddress("55401");
+            await address.GetAddress();
             Assert.Equal("Hennepin County", address.County);
             Assert.Equal("Minneapolis", address.City);
         }
 
         [Fact]
-        public void BadAddress()
+        public async Task BadAddress()
         {
-            IAddress address = map.GetAddress("alsdjfhaljsdfhalhjsdfalfsdh");
+            IAddress address = Map.GetAddress("alsdjfhaljsdfhalhjsdfalfsdh");
+            await address.GetAddress();
             Assert.Equal("ZERO_RESULTS", address.Status);
         }
     }

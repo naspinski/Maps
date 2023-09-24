@@ -85,9 +85,16 @@ namespace Naspinski.Maps.Implementations.Google
         {
             var client = new HttpClient();
 
-            using (var stream = await client.GetStreamAsync(_uri))
+            try
             {
-                _root = JsonSerializer.Deserialize<RootObject>(stream);
+                using (var stream = await client.GetStreamAsync(_uri))
+                {
+                    _root = JsonSerializer.Deserialize<RootObject>(stream);
+                }
+            }
+            catch(Exception ex)
+            {
+                var asdf = ex.Message;
             }
         }
     }
